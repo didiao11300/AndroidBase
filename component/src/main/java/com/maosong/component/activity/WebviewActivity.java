@@ -3,6 +3,7 @@ package com.maosong.component.activity;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.util.Log;
+import android.webkit.ConsoleMessage;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -49,7 +50,8 @@ public class WebviewActivity<P extends BasePresenter> extends BaseActivity<P> {
     public static final String TAG = WebviewActivity.class.getSimpleName();
     public static final String KEY_TITLE = "_key_title";
     public static final String KEY_URL = "_key_url";
-    protected BridgeWebView webView;
+
+    private BridgeWebView webView;
 
     @Override
     public int getContentViewRes() {
@@ -67,11 +69,11 @@ public class WebviewActivity<P extends BasePresenter> extends BaseActivity<P> {
 
         webView.setDefaultHandler(new DefaultHandler());
 //        //页面加载相关控制
-        BridgeWebViewClient client = new BridgeWebViewClient(webView);
-        webView.setWebViewClient(client);
+//        BridgeWebViewClient client = new BridgeWebViewClient(webView);
+//        webView.setWebViewClient(client);
 //        //页面调用UI之间的控制
         webView.setWebChromeClient(hookWebChromeClient());
-        webView.setWebViewClient(hookWebviewClient());
+//        webView.setWebViewClient(hookWebviewClient());
         //设置websettings
         setWebSetting(webView.getSettings());
 
@@ -84,29 +86,45 @@ public class WebviewActivity<P extends BasePresenter> extends BaseActivity<P> {
         }
     }
 
-    protected WebChromeClient hookWebChromeClient() {
-        return new WebChromeClient();
+    public BridgeWebView getWebView() {
+        return webView;
     }
 
+    /**
+     * 给继承的钩子webChromeclient
+     **/
+    protected WebChromeClient hookWebChromeClient() {
+        return new WebChromeClient() {
+            @Override
+            public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+                Log.i("web", "onConsoleMessage" + consoleMessage.message());
+                return super.onConsoleMessage(consoleMessage);
+            }
+        };
+    }
+
+    /**
+     * 给继承的钩子webviewClient
+     **/
     protected WebViewClient hookWebviewClient() {
         return new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
                 LogUtil.i(TAG, "webview start");
-                showLoading("loading...");
+//                showLoading("loading...");
             }
 
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 LogUtil.i(TAG, "webview finished");
-                dismissLoading();
+//                dismissLoading();
             }
         };
     }
 
-    protected void setWebSetting(WebSettings webSettings){
+    protected void setWebSetting(WebSettings webSettings) {
         //设置WebView属性，能够执行Javascript脚本
         webSettings.setJavaScriptEnabled(true);
         //设置可以访问文件,考虑跨域的攻击
