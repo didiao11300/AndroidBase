@@ -64,6 +64,7 @@ dependencies {
     }
     releaseImplementation "com.readystatesoftware.chuck:library-no-op:$m_depen.chuck"
     implementation "com.jaeger.statusbarutil:library:$m_depen.statusbarutil"
+    implementation "com.github.lzyzsd:jsbridge:1.0.4"
 
 //    implementation "com.squareup.okhttp3:okhttp:$m_depen.okhttp"
 //    implementation "com.squareup.okio:okio:$m_depen.okio"
