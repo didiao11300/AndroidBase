@@ -1,0 +1,12 @@
+.idea/
+.gradle/
+build/
+obj/
+*.iml
+local.properties
+gradle.properties
+
+TMessagesProj/src/main/java/org/telegram/messenger/BuildVars.java
+.DS_Store
+TMessagesProj/.externalNativeBuild
+*/.cxx/*

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="units">
+        <item>Day</item>
+        <item>Hour</item>
+        <item>Minute</item>
+        <item>Second</item>
+        <item>Millisecond</item>
+    </string-array>
+
+    <string-array name="hotAndNew">
+        <item>Hottest</item>
+        <item>New</item>
+    </string-array>
+
+    <string-array name="gender">
+        <item>Female</item>
+        <item>Male</item>
+    </string-array>
+
+    <string-array name="report">
+        <item>Illegal cheating</item>
+        <item>Mischief</item>
+        <item>Insult on others</item>
+        <item>Pornography and vulgarity</item>
+        <item>Illegal content</item>
+        <item>Inappropriate name</item>
+        <item>Pretending to be official</item>
+    </string-array>
+
+
+    <string-array name="match_tips">
+        <item>Deduct 3 credits after quitting ongoing game</item>
+        <item>Can\'t play game if credit is less than 80</item>
+        <item>Deduct credits when quit ongoing game  Grab mic maliciously、\nPlease report pretending official or other illegal behaviors</item>
+    </string-array>
+
+    <string-array name="quick_ims">
+        <item>You voice lights up the room</item>
+        <item>I totally believe you should be No.1</item>
+        <item>Could you give me a chance to sing?</item>
+        <item>Wow! You make me so proud</item>
+        <item>It\'s just so good, I\'m in tears. Huehue~</item>
+        <item>I\'m thankful I have heard you... and nutella</item>
+        <item>Better know calculus. U + ME = US...</item>
+        <item>Yow! Wazzup? Dare to battle?</item>
+        <item>Lol! I saw you practicing in karaoke</item>
+        <item>Sorry for being a stalker... I\'ve followed you</item>
+    </string-array>
+</resources>

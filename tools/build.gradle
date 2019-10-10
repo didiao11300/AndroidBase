@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion m_config.COMPILE_SDK_VERSION
+    buildToolsVersion m_config.BUILD_TOOLS_VERSION
+    defaultConfig {
+        minSdkVersion m_config.MIN_SDK_VERSION
+        targetSdkVersion m_config.TARGET_SDK_VERSION
+        versionCode 100
+        versionName "1.0.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility m_config.JAVA_VERSION
+        targetCompatibility m_config.JAVA_VERSION
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:$m_config.COMPONENT_VERSION"
+//    implementation "com.android.support:design:$m_config.COMPONENT_VERSION"
+    implementation("com.aliyun.dpa:oss-android-sdk:$m_depen.oss_sdk") {
+        exclude module: 'okhttp'
+        exclude module: 'okio'
+        exclude module: 'gson'
+    }
+    implementation("com.amazonaws:aws-android-sdk-s3:$m_depen.aws_sdk") {
+        exclude module: 'okhttp'
+        exclude module: 'okio'
+        exclude module: 'gson'
+    }
+    implementation "com.github.bumptech.glide:glide:$m_depen.glide"
+    kapt "com.github.bumptech.glide:compiler:$m_depen.glide"
+
+    //    implementation "com.squareup.okhttp3:okhttp:$m_depen.okhttp"
+    //    implementation "com.squareup.okio:okio:$m_depen.okio"
+    //    implementation "com.google.code.gson:gson:$m_depen.gson"
+
+}

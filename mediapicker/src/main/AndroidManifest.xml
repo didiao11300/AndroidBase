@@ -1,0 +1,31 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.maosong.mediapicker">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <application>
+        <provider
+                android:name="com.maosong.mediapicker.CFileProvider"
+                android:authorities="${applicationId}.colin.picklib.FileProvider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/cpicker_file_path"/>
+        </provider>
+
+        <activity
+                android:name=".activity.BigImageActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+                android:name=".activity.MediaPickerAct"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".cammera.CameraActivity"
+                  android:launchMode="singleTop"
+        />
+    </application>
+</manifest>

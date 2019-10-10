@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SettingItemView">
+        <attr name="icon" format="reference" />
+        <attr name="iconSize" format="dimension"/>
+        <attr name="titleSize" format="dimension" />
+        <attr name="infoSize" format="dimension" />
+        <attr name="hasNext" format="boolean" />
+        <attr name="titleText" format="string" />
+        <attr name="infoText" format="string" />
+        <attr name="endIcon" format="boolean" />
+        <attr name="isSwitchModel" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="FlowLayout">
+        <!-- Horizontal spacing between two items being laid out. -->
+        <attr name="itemSpacing" format="dimension" />
+        <!-- Vertical Spacing between two lines of items being laid out. -->
+        <attr name="lineSpacing" format="dimension" />
+    </declare-styleable>
+
+</resources>

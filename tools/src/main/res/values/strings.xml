@@ -1,0 +1,11 @@
+<resources>
+    <string name="gangang">刚刚</string>
+    <string name="miao_before">%d秒前</string>
+    <string name="fen_before">%d分钟前</string>
+    <string name="today">今天%tR</string>
+    <string name="zuotian">昨天%tR</string>
+    <string name="yes">Yes</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="sure">Sure</string>
+</resources>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:id="@+id/base_toolbar_frame"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/dp50"
+             android:background="@color/title_color"
+             tools:ignore="ResourceName"
+             android:visibility="visible">
+
+    <ImageView
+            android:id="@+id/base_toolbar_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/dp10"
+            android:src="@mipmap/icon_back_left_arrow"
+            android:tint="@color/white"/>
+
+    <TextView
+            android:id="@+id/base_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:focusable="true"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_size_19"
+            tools:text="title"/>
+
+    <Button
+            android:id="@+id/base_toolbar_right"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp20"
+            android:layout_gravity="end|center_vertical"
+            android:background="@android:color/transparent"
+            android:gravity="end"
+            android:maxHeight="@dimen/dp20"
+            android:paddingRight="@dimen/dp10"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            tools:text="save"/>
+
+    <ImageButton
+            android:id="@+id/base_toolbar_right_img_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/app_name"
+            android:src="@mipmap/spinner_black"
+            android:paddingRight="@dimen/dp10"
+            android:visibility="gone"/>
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_gravity="bottom"
+            android:id="@+id/base_toolbar_line"
+            android:background="@color/title_line_color"/>
+
+</FrameLayout>

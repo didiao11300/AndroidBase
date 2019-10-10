@@ -1,0 +1,72 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'com.jakewharton.butterknife'
+//apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion m_config.COMPILE_SDK_VERSION
+    buildToolsVersion m_config.BUILD_TOOLS_VERSION
+    resourcePrefix "component_"
+    defaultConfig {
+        minSdkVersion m_config.MIN_SDK_VERSION
+        targetSdkVersion m_config.TARGET_SDK_VERSION
+        versionCode 100
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility m_config.JAVA_VERSION
+        targetCompatibility m_config.JAVA_VERSION
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$m_config.KOTLIN_VERSION"
+    implementation "com.android.support:appcompat-v7:$m_config.COMPONENT_VERSION"
+    implementation "com.android.support:recyclerview-v7:$m_config.COMPONENT_VERSION"
+//    implementation "com.google.android.material:material:1.1.0-alpha10"
+    implementation "com.android.support:design:$m_config.COMPONENT_VERSION"
+    implementation "com.jakewharton:butterknife:$m_depen.butterknife"
+    kapt "com.jakewharton:butterknife-compiler:$m_depen.butterknife"
+    api("com.squareup.retrofit2:retrofit:$m_depen.retrofit") {
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+    }
+    api "com.squareup.retrofit2:adapter-rxjava2:$m_depen.retrofit"
+    api("com.squareup.retrofit2:converter-gson:$m_depen.retrofit")
+    api "io.reactivex.rxjava2:rxjava:$m_depen.rxjava"
+    api "io.reactivex.rxjava2:rxandroid:$m_depen.rxandroid"
+    api("com.alibaba:fastjson:$m_depen.fastjson")
+    implementation project(':base:tools')
+
+    api "org.greenrobot:eventbus:$m_depen.eventbus"
+
+    //刷新
+    api "com.scwang.smartrefresh:SmartRefreshLayout:$m_depen.refresh"
+    api "com.scwang.smartrefresh:SmartRefreshHeader:$m_depen.refresh"
+
+
+    //recycleview adapter 支持
+    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:$m_depen.recycleview_adapter"
+
+    // chuck 在通知栏查看网络请求
+    debugImplementation("com.readystatesoftware.chuck:library:$m_depen.chuck") {
+        exclude group: 'com.android.support'
+    }
+    releaseImplementation "com.readystatesoftware.chuck:library-no-op:$m_depen.chuck"
+    implementation "com.jaeger.statusbarutil:library:$m_depen.statusbarutil"
+
+//    implementation "com.squareup.okhttp3:okhttp:$m_depen.okhttp"
+//    implementation "com.squareup.okio:okio:$m_depen.okio"
+//    implementation "com.google.code.gson:gson:$m_depen.gson"
+
+}
