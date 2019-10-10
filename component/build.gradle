@@ -46,7 +46,7 @@ dependencies {
     api "io.reactivex.rxjava2:rxjava:$m_depen.rxjava"
     api "io.reactivex.rxjava2:rxandroid:$m_depen.rxandroid"
     api("com.alibaba:fastjson:$m_depen.fastjson")
-    implementation project(':base:tools')
+    implementation project(':AndroidBase:tools')
 
     api "org.greenrobot:eventbus:$m_depen.eventbus"
 
