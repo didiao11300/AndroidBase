@@ -44,6 +44,9 @@ import com.maosong.tools.LogUtil;
  *
  * 	  JSBRIDEGE protocol @See
  * 	  BridgeUtil.java
+ *
+ * 	  note this;
+ * 	  如果这里 onPageFinish 中加载jsBridge失败,请在html中手动加载，主要还是import js文件
  * */
 //@RouterRule(SchemaConstants.PAGE.WEB)
 public class WebviewActivity<P extends BasePresenter> extends BaseActivity<P> {
